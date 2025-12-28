@@ -40,10 +40,9 @@ hasCJKLanguage = true
     url = '/about/'
     weight = 40
 
-[build]
-  publish = 'public'
-  command = 'hugo --gc --minify'
-
 [build.environment]
-  HUGO_VERSION = '0.153.3'
-  HUGO_ENABLEGITINFO = 'true'
+  HUGO_VERSION = "0.153.3"
+
+[build]
+  command = "hugo --gc --minify"
+  publish = "public"
