@@ -5,6 +5,7 @@ description = 'WEBエンジニアの技術ブログです。現在はPHP、React
 theme = 'PaperMod'
 summaryLength = 10
 hasCJKLanguage = true
+googleAnalytics = 'G-8LBV6457JS'
 
 [pagination]
   pagerSize = 10
