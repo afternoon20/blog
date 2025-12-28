@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>VBA on Afternoon Blog</title>
-    <link>//localhost:1313/tags/vba/</link>
+    <link>http://localhost:1313/tags/vba/</link>
     <description>Recent content in VBA on Afternoon Blog</description>
     <generator>Hugo -- 0.153.3</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 28 Dec 2025 12:02:20 +0900</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/vba/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/vba/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【VBA】配列の代わりにDictionaryオブジェクトを使う</title>
-      <link>//localhost:1313/posts/vba-dictionary/</link>
+      <link>http://localhost:1313/posts/vba-dictionary/</link>
       <pubDate>Sun, 28 Dec 2025 12:02:20 +0900</pubDate>
-      <guid>//localhost:1313/posts/vba-dictionary/</guid>
+      <guid>http://localhost:1313/posts/vba-dictionary/</guid>
       <description>VBAで使える便利なDictionaryオブジェクトについて解説します。</description>
     </item>
   </channel>
