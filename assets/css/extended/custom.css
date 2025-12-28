@@ -1,3 +1,7 @@
+.post-description {
+    display: none;
+}
+
 .post-tags-inline {
     display: inline-flex; 
     flex-wrap: nowrap;

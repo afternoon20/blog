@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Cloudinary on Afternoon Blog</title>
+    <link>//localhost:1313/tags/cloudinary/</link>
+    <description>Recent content in Cloudinary on Afternoon Blog</description>
+    <generator>Hugo -- 0.153.3</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 28 Dec 2025 22:19:54 +0900</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/cloudinary/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloudinaryで動的なOGP画像を生成する</title>
+      <link>//localhost:1313/posts/cloudinary-org/</link>
+      <pubDate>Sun, 28 Dec 2025 22:19:54 +0900</pubDate>
+      <guid>//localhost:1313/posts/cloudinary-org/</guid>
+      <description>Cloudinaryで動的なOGP画像を生成する方法とReact及びHugoでの実装例を解説します。日本語フォントの外部読み込みも合わせて解説します。</description>
+    </item>
+  </channel>
+</rss>
