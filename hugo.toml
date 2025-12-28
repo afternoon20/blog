@@ -1,0 +1,49 @@
+baseURL = 'https://example.org/'
+languageCode = 'ja'
+title = 'Afternoon Blog'
+description = 'WEBエンジニアの技術ブログです。現在はPHP、Reactをメインの開発を行っています。それ以外にも興味がある技術を紹介しています。'
+theme = 'PaperMod'
+summaryLength = 10
+hasCJKLanguage = true
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  disableSpecial1stPost = true
+  ShowCodeCopyButtons = true
+  ShowBreadCrumbs = true
+  ShowPostMeta = true
+  ShowReadingTime = false
+
+[outputs]
+  home = ['HTML', 'JSON']
+
+[[menu.main]]
+    name = 'Search'
+    url = '/search/'
+    weight = 10
+
+[[menu.main]]
+    identifier = 'tags'
+    name = 'tags'
+    url = '/tags/'
+    weight = 20
+
+[[menu.main]]
+    name = 'Archives'
+    url = '/archives/'
+    weight = 30
+
+[[menu.main]]
+    name = 'About'
+    url = '/about/'
+    weight = 40
+
+[build]
+  publish = 'public'
+  command = 'hugo --gc --minify'
+
+[build.environment]
+  HUGO_VERSION = '0.153.3'
+  HUGO_ENABLEGITINFO = 'true'

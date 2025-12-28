@@ -1,0 +1,11 @@
+{{- if not .Date.IsZero -}}
+{{- .Date | time.Format (default "January 2, 2006" site.Params.DateFormat) -}}
+{{- end -}}
+
+{{- with .Params.tags -}}
+<span class="post-tags-inline">
+{{- range . -}}
+<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
+{{- end -}}
+</span>
+{{- end -}}

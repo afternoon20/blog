@@ -1,0 +1,23 @@
+.post-tags-inline {
+    display: inline-flex; 
+    flex-wrap: nowrap;
+    margin-left: 8px;
+    gap: 5px;
+    vertical-align: middle;
+}
+
+.post-tags-inline a {
+    font-size: 12px;      
+    padding: 4px 8px;    
+    border-radius: 4px;
+    background: var(--code-bg); 
+    color: var(--secondary);
+    line-height: 1;
+    text-decoration: none;
+    border: none;        
+}
+
+.entry-footer {
+    position: relative;
+    z-index: 5;
+}

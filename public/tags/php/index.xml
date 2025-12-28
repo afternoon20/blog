@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>PHP on Afternoon Blog</title>
+    <link>http://localhost:1313/tags/php/</link>
+    <description>Recent content in PHP on Afternoon Blog</description>
+    <generator>Hugo -- 0.153.3</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 28 Dec 2025 15:31:47 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【PHP】CSV出力で数字の先頭に0を保持させる</title>
+      <link>http://localhost:1313/posts/php-zero-madding/</link>
+      <pubDate>Sun, 28 Dec 2025 15:31:47 +0900</pubDate>
+      <guid>http://localhost:1313/posts/php-zero-madding/</guid>
+      <description>PHPでのCSV出力時、Excelで先頭の0が消える問題について、コードによる対策（=&amp;#34;001&amp;#34;）と、データを汚さずExcel側で正しく開く手順を分かりやすくまとめました。</description>
+    </item>
+    <item>
+      <title>【PHP】「Uncaught Error: Cannot use a scalar value as an array」の原因と解決法</title>
+      <link>http://localhost:1313/posts/scalar-to-array/</link>
+      <pubDate>Fri, 28 Nov 2025 15:15:21 +0900</pubDate>
+      <guid>http://localhost:1313/posts/scalar-to-array/</guid>
+      <description>Uncaught Error: Cannot use a scalar value as an arrayの原因と対策について解説します。</description>
+    </item>
+    <item>
+      <title>【FuelPHP】find_by_pkで「id」カラムエラーが出る原因と解決策</title>
+      <link>http://localhost:1313/posts/fuelphp-find-by-pk-error/</link>
+      <pubDate>Thu, 28 Dec 2023 15:47:25 +0900</pubDate>
+      <guid>http://localhost:1313/posts/fuelphp-find-by-pk-error/</guid>
+      <description>FuelPHPで「Unknown column &amp;#39;id&amp;#39;」エラーが出る原因と解決策を解説。主キー名がid以外の場合に、モデル側で設定すべき$_primary_keyの使い方をまとめました。</description>
+    </item>
+  </channel>
+</rss>
