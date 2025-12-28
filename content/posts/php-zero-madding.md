@@ -1,6 +1,6 @@
 +++
 date = '2025-12-28T15:31:47+09:00'
-draft = true
+draft = false
 title = '【PHP】CSV出力で数字の先頭に0を保持させる'
 description = 'PHPでのCSV出力時、Excelで先頭の0が消える問題について、コードによる対策（="001"）と、データを汚さずExcel側で正しく開く手順を分かりやすくまとめました。'
 tags = ['PHP']

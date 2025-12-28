@@ -1,6 +1,6 @@
 +++
 date = '2025-11-28T15:15:21+09:00'
-draft = true
+draft = false
 title = '【PHP】「Uncaught Error: Cannot use a scalar value as an array」の原因と解決法'
 description = 'Uncaught Error: Cannot use a scalar value as an arrayの原因と対策について解説します。'
 tags = ['PHP']

@@ -1,6 +1,6 @@
 +++
 date = '2025-12-28T12:02:20+09:00'
-draft = true
+draft = false
 title = '【VBA】配列の代わりにDictionaryオブジェクトを使う'
 description = 'VBAで使える便利なDictionaryオブジェクトについて解説します。'
 tags = ['VBA']

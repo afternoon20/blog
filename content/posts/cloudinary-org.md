@@ -1,6 +1,6 @@
 +++
 date = '2025-12-28T22:19:54+09:00'
-draft = true
+draft = false
 title = 'Cloudinaryで動的なOGP画像を生成する'
 description = 'Cloudinaryで動的なOGP画像を生成する方法とReact及びHugoでの実装例を解説します。日本語フォントの外部読み込みも合わせて解説します。'
 tags = ['Cloudinary']
