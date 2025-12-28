@@ -1,5 +1,5 @@
 baseURL = 'https://afternoon-web.com/'
-languageCode = 'ja'
+defaultContentLanguage = "ja"
 title = 'Afternoon Blog'
 description = 'WEBエンジニアの技術ブログです。現在はPHP、Reactをメインの開発を行っています。それ以外にも興味がある技術を紹介しています。'
 theme = 'PaperMod'
