@@ -5,4 +5,4 @@ draft = true
 title = 'About'
 +++
 
-更新中です。
+更新中です
