@@ -20,6 +20,11 @@ googleAnalytics = 'G-8LBV6457JS'
 [outputs]
   home = ['HTML', 'JSON']
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [[menu.main]]
     name = 'Search'
     url = '/search/'
@@ -40,3 +45,13 @@ googleAnalytics = 'G-8LBV6457JS'
     name = 'About'
     url = '/about/'
     weight = 40
+
+[[menu.main]]
+    name = 'Contact'
+    url = '/contact/'
+    weight = 50
+
+[[menu.footer]]
+    name = 'プライバシーポリシー'
+    url = '/privacy/'
+    weight = 10    
