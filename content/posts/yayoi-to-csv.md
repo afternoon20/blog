@@ -1,6 +1,6 @@
 +++
 date = '2026-01-01T10:10:40+09:00'
-draft = true
+draft = false
 title = '【Python】弥生会計のインポートクラスの作成と使用例'
 description = 'Pythonにて、弥生会計のインポートファイル作成をで自動化のために、弥生クラスファイルの作成と使用例を紹介します。'
 tags = ['Python', '弥生会計']

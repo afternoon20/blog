@@ -6,10 +6,10 @@ description = 'Cloudinaryで動的なOGP画像を生成する方法とReact及�
 tags = ['Cloudinary']
 +++
 
-ZennのOGP画像のように画像のテンプレートを用意して、そこに動的にブログ記事のタイトルを挿入する方法を解説します。
+ブログのSNSシェア数を増やすために、記事ごとにタイトルが入ったOGP画像を自動で作る仕組みを解説します。Cloudinaryを使えば、サーバーレスで動的な画像生成が可能です。
 今回はCloudinaryというサービスを使用し、Hugo、Reactでの実装例も紹介します。
 
-## ログイン
+## Cloudinaryのアカウント作成と初期設定
 まずは以下からサインアップ、ログインします。
 
 [https://cloudinary.com/](https://cloudinary.com/)
@@ -35,7 +35,6 @@ Assetからアップロードして画像を選択します。右にメニュー
 Googleフォントから[NotoSansJP](https://fonts.google.com/noto/specimen/Noto+Sans+JP)などをダウンロードします。その後、画像と同様にAssetから任意のttfファイルをアップロードします。PublicIDには「NotoSansJP-Bold.ttf」など拡張子込みの名前に変更します。
 
 ## 実装コード例
-### Hugo
 
 ### React
 
