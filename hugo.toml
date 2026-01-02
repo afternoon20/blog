@@ -16,6 +16,7 @@ googleAnalytics = 'G-8LBV6457JS'
   ShowBreadCrumbs = true
   ShowPostMeta = true
   ShowReadingTime = false
+  description = "WEBエンジニアの技術ブログです。現在はPHP、Reactをメインの開発を行っています。それ以外にも興味がある技術を紹介しています。"
 
 [outputs]
   home = ['HTML', 'JSON']
