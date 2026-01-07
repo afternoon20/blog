@@ -1,6 +1,6 @@
 +++
 date = '2026-01-03T12:18:34+09:00'
-draft = true
+draft = false
 title = '【PHP】ノンフレームワークでセキュアなコードを書く'
 description = 'PHP標準関数やPDOを活用し、外部ライブラリに頼らずにSQLインジェクションやXSS、CSRFなどの主要な脆弱性を防ぐ実装方法を解説します。'
 tags = ['PHP']
