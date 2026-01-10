@@ -2,11 +2,13 @@
 date = '2025-12-28T12:02:20+09:00'
 draft = false
 title = '【VBA】配列の代わりにDictionaryオブジェクトを使う'
-description = 'VBAで使える便利なDictionaryオブジェクトについて解説します。'
+description = 'VBAの配列操作に限界を感じている方へ。実務で役立つDictionaryオブジェクトの活用術と、配列との明確な使い分けを解説します。'
 tags = ['VBA']
 +++
 
-VBAの配列型は非常に扱いづらいので、代わりにDictionaryオブジェクトを使っています。その際によく使う実装方法をまとめます。
+VBAの動的配列で```ReDim Preserve```を繰り返して可読性が落ちたり、処理速度が落ちて困ったことがありました。
+そこで私は大量のデータを名寄せする際、配列のループ処理に限界を感じて```Dictionaryオブジェクト```に乗り換えました。
+結果、コードが劇的にスッキリし、保守性も上がりました。そこでよく使っている実装方法をまとめます。
 
 ## Dictionaryオブジェクトについて
 VBAで使える連想配列のオブジェクトです。キーと値をセットとして要素の追加、削除、存在チェックなど基本的なメソッドが使えます。
@@ -15,7 +17,8 @@ VBAで使える連想配列のオブジェクトです。キーと値をセッ�
 Dictionaryには2種類の設定方法があります。
 
 ### 1. 実行時バインディング（推奨）
-事前の設定が不要で、ファイルを他人に配布する場合にトラブルが少ない方法です。
+実務では、自分一人が使うツールなら「参照設定」で良いのですが、社内の他部署に配布する場合は、参照設定のズレで動かなくなるトラブルが多発します。
+そのため、私は配布用ツールでは必ず「実行時バインディング（CreateObject）」を使うようにしています。
 
 ```vb
 Dim dictionary As Object: Set dictionary = CreateObject("Scripting.Dictionary")
@@ -76,6 +79,16 @@ For Each k In user
 Next
 ```
 
+### リストから重複を除いたユニークなIDだけを抽出する
+```vb
+Dim cell As Range
+For Each cell In Range("A2:A100")
+    If Not dictionary.Exists(cell.Value) Then
+        dictionary.Add cell.Value, True
+    End If
+Next
+```
+
 ## 配列との比較
 | 機能 | 配列 | Dictionary |
 | :--- | :--- | :--- |
@@ -83,6 +96,8 @@ Next
 | **サイズ変更** | `ReDim`が必要 | 自動で拡張 |
 | **要素の削除** | 困難 | `Remove`で容易 |
 | **Mac環境** | 利用可能 | 利用不可 |
+
+Dictionaryオブジェクトを推奨してきましたが、要素数が固定のときは単純な配列を使ったほうが使いやすいこともあります。
 
 ## 参考サイト
 - [Dictionary オブジェクト](https://learn.microsoft.com/ja-jp/office/vba/language/reference/user-interface-help/dictionary-object)

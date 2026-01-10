@@ -2,12 +2,13 @@
 date = '2025-12-28T22:19:54+09:00'
 draft = false
 title = 'Cloudinaryで動的なOGP画像を生成する'
-description = 'Cloudinaryで動的なOGP画像を生成する方法とReact及びHugoでの実装例を解説します。日本語フォントの外部読み込みも合わせて解説します。'
+description = 'Cloudinaryを使用して記事タイトル入りのOGP画像を自動生成する方法を解説。日本語フォントの適用設定やURLエンコードの仕様、React・Hugoでの実装例をまとめました。'
 tags = ['Cloudinary']
 +++
 
-ブログのSNSシェア数を増やすために、記事ごとにタイトルが入ったOGP画像を自動で作る仕組みを解説します。Cloudinaryを使えば、サーバーレスで動的な画像生成が可能です。
-今回はCloudinaryというサービスを使用し、Hugo、Reactでの実装例も紹介します。
+ブログのSNSシェア時に表示されるOGP画像を、記事タイトルに合わせて動的に生成する仕組みを構築しました。
+Cloudinaryを利用すると、サーバー側の処理を記述することなく、URLパラメータのみで画像加工が可能です。
+日本語フォントを適用するための権限設定や、特殊なURLエンコードの仕様など、実装に必要な具体的な手順を解説します。
 
 ## Cloudinaryのアカウント作成と初期設定
 まずは以下からサインアップ、ログインします。
@@ -17,16 +18,17 @@ tags = ['Cloudinary']
 ## Cloudinaryでの設定手順
 
 ### Cloud name（クラウド名）の確認
-Home > Dashboardのうち、Product Environmentの「Cloud name」がクラウド名になります。
+Dashboardに表示されている「Cloud name」を使用します。これは生成URLのホスト部分に含まれる識別子です。
 
 ### 日本語フォントを有効化するための権限設定
-デフォルトのArialが微妙な場合は、Googleフォントなどをアップロードして読み込ませることができます。そのための必須設定です。
+デフォルト以外のフォント（Googleフォント等）を読み込むには、認証済みアップロード（Authenticated）の設定が必要です。
+
 1. Settings > Upload を開く
-2. Uploadから「Add upload preset」ボタンを押す
-3. Upload preset nameは任意入力（例：custom_fonts）
-4. 左メニューの「Optimize and Delivery」> Delivery typeを「Authenticated」
+2. Add upload preset をクリック
+3. Upload preset nameを```custom_fonts```等にする（任意の名前にする）
+4. 左メニューのOptimize and Delivery > Delivery typeをAuthenticatedに変更
 5. それ以外は変更しないでsaveを押す
-6. Settings > Uploadに戻り、「Manage Defaults」からMedia LibraryのRawを作成したpresetに変更して保存
+6. Settings > Uploadに戻り、Manage DefaultsからMedia LibraryのRawを作成したpresetに変更して保存
 
 ### 素材のアップロード
 #### 背景画像
@@ -36,20 +38,25 @@ Googleフォントから[NotoSansJP](https://fonts.google.com/noto/specimen/Noto
 
 ## 実装コード例
 
-### React
+### URLエンコードの仕様
+Cloudinaryで日本語テキストを重ねる場合、通常のURLエンコードに加え、記号```%```を```%25```に置換する処理が必要です。
+これを行わない場合、マルチバイト文字が正しく認識されません。
+
+### Reactでの実装例
 
 ```js
 const getOgpUrl = (title) => {
   const cloudName = "your_cloud_name";
   const baseId = "ogp_base";
+  
   const encodedTitle = encodeURIComponent(title).replace(/%/g, '%25');
   
   const params = [
     `l_text:NotoSansJP-Bold.ttf_60_bold:${encodedTitle}`,
-    'w_850',
-    'co_rgb:000000',
-    'c_fit',
-    'g_center'
+    'w_850',         // テキストの最大横幅
+    'co_rgb:000000', // 文字色
+    'c_fit',         // 指定幅での自動改行
+    'g_center'       // 配置の基準点
   ].join(',');
 
   return `https://res.cloudinary.com/${cloudName}/image/upload/${params}/v1/${baseId}.jpg`;
@@ -58,10 +65,9 @@ const getOgpUrl = (title) => {
 
 定数paramsはそれぞれ、使用するフォント・サイズ・太さ、テキストを表示する最大横幅、文字色、枠内に収めるための改行設定、配置の基準位置を設定しています。
 
-### Hugo
+### Hugoでの実装例
 
 ```html
-{{- /* Cloudinary */}}
 {{- $cloudName := "your_cloud_name" -}}
 {{- $baseId := "ogp_base" -}}
 {{- $text := .Title -}}
@@ -80,6 +86,8 @@ const getOgpUrl = (title) => {
 https://res.cloudinary.com/[cloudName]/image/upload/[params]/[version]/[baseId].jpg
 ```
 
+### URLパラメータの構成
+
 | 項目 | 意味・役割 |
 | :--- | :--- |
 | **cloudName** | アカウント固有のID、Dashboardで確認できる名前 |
@@ -93,5 +101,6 @@ https://res.cloudinary.com/[cloudName]/image/upload/[params]/[version]/[baseId].
 https://res.cloudinary.com/dl79ugpcw/image/upload/l_text:NotoSansJP-Bold.ttf_60_bold:Cloudinary%25E3%2581%25A7%25E5%258B%2595%25E7%259A%2584%25E3%2581%25AAOGP%25E7%2594%25BB%25E5%2583%258F%25E3%2582%2592%25E7%2594%259F%25E6%2588%2590%25E3%2581%2599%25E3%2582%258B,w_850,co_rgb:000000,c_fit,g_center/v1/ogp_base.jpg
 ```
 
-## 補足
-実際ZennでもCloudinaryを使用しているようです。（検証ツールから確認）
+## まとめ
+Cloudinaryを活用することで、運用コストを抑えつつ記事ごとに最適化されたOGP画像を配信できます。
+Zennなどの技術系メディアでも採用されている手法であり、個人開発のブログにおいても有用な機能です。

@@ -2,22 +2,25 @@
 date = '2026-01-01T00:00:14+09:00'
 draft = false
 title = 'TailwindとJavaScriptで作るアニメーション付きモーダル'
-description = '複数モーダルに対応した、軽量＆拡張しやすいモーダルの実装方法を紹介します。Tailwind CSSとJavaScriptのみで構築し、外部ライブラリは一切使用していません。'
+description = '外部ライブラリを使わず、Tailwind CSSとバニラJSだけで軽量なモーダルを実装。複数設置への対応やアニメーション、アクセシビリティ（Escapeキー対応）のポイントを解説します。'
 tags = ['TailWind CSS', 'JavaScript']
 +++
 
-複数モーダルに対応した、軽量＆拡張しやすいモーダルを実装しました。Tailwind CSSとJavaScriptのみで構築し、外部ライブラリは一切使用していません。
+Webサイト制作においてモーダルは必須パーツですが、ライブラリを導入するとプロジェクトが重くなったり、カスタマイズが制限されたりすることがあります。
+今回は、Tailwind CSSのユーティリティクラスと最小限のJavaScript（バニラJS）のみで、複数設置にも対応した軽量なアニメーション付きモーダルの実装方法を紹介します。
 
-## このコードのメリット
-- ライブラリ不要でJSの記述も最小限
+## この実装のメリット
+- ライブラリ不要でJSの記述も最小限で軽量
 - Tailwind CSSのユーティリティクラスのみで実現
 - アニメーション付きモーダル
 - JavaScriptで開閉処理をイベントリスナーで分離
-- ボタン、クリック、キーボード操作でモーダルの開閉が可能
+- ボタン、クリック、キーボード操作でモーダルの開閉が可能で実用的なUX
 
 ## 実際のコード（複数モーダル対応）
 
 ### HTMLの実装
+
+data-modal-openとdata-modal-idを紐付けることで、1つのスクリプトで複数のモーダルを個別に制御できます。
 
 ```html
 <div class="p-10 space-x-4">
@@ -51,6 +54,8 @@ tags = ['TailWind CSS', 'JavaScript']
 ※このコードはTailwind CSS v3 (JITモード) を前提としています。```bg-black/50```などのクラスが動かない場合は、最新のCDNを読み込んでください。
 
 ### JavaScriptの実装
+
+requestAnimationFrameを使用して、DOMの表示切り替え直後にアニメーションクラスを適用させるのがポイントです。
 
 ```js
 document.addEventListener('DOMContentLoaded', () => {
@@ -113,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 ```
 
-## 実装の概要
+## 実装の概要とポイント
 
 ### モーダルを開く
 ```data-modal-open```を付与したボタンがクリックされると、以下のステップでアニメーションを実行します。
