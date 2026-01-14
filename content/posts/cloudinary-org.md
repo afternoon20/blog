@@ -101,6 +101,6 @@ https://res.cloudinary.com/[cloudName]/image/upload/[params]/[version]/[baseId].
 https://res.cloudinary.com/dl79ugpcw/image/upload/l_text:NotoSansJP-Bold.ttf_60_bold:Cloudinary%25E3%2581%25A7%25E5%258B%2595%25E7%259A%2584%25E3%2581%25AAOGP%25E7%2594%25BB%25E5%2583%258F%25E3%2582%2592%25E7%2594%259F%25E6%2588%2590%25E3%2581%2599%25E3%2582%258B,w_850,co_rgb:000000,c_fit,g_center/v1/ogp_base.jpg
 ```
 
-## まとめ
+## この記事のまとめ
 Cloudinaryを活用することで、運用コストを抑えつつ記事ごとに最適化されたOGP画像を配信できます。
 Zennなどの技術系メディアでも採用されている手法であり、個人開発のブログにおいても有用な機能です。

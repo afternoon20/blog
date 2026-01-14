@@ -1,0 +1,15 @@
+User-agent: *
+
+Disallow: /search/
+Disallow: /archives/
+Disallow: /categories/
+Disallow: /tags/
+Disallow: /page/
+
+Allow: /
+Allow: /posts/
+Allow: /contact/
+Allow: /privacy/
+Allow: /about/
+
+Sitemap: https://afternoon-web.com/sitemap.xml
