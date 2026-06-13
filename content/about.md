@@ -1,9 +1,11 @@
-+++
-date = '2025-12-28T15:03:33+09:00'
-layout = 'about'
-draft = false
-title = 'About Me'
-+++
+---
+date: '2025-12-28T15:03:33+09:00'
+layout: 'about'
+draft: false
+title: 'About Me'
+_build:
+  list: never
+---
 
 ## 経歴
 

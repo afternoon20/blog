@@ -1,5 +1,7 @@
 ---
 title: "プライバシーポリシー"
+_build:
+  list: never
 date: 2025-12-29
 draft: false
 ---
