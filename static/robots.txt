@@ -1,5 +1,6 @@
 User-agent: *
-
 Disallow: /search/
+Disallow: /index.xml
+Disallow: /posts/
 
 Sitemap: https://afternoon-web.com/sitemap.xml
