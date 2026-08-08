@@ -2,7 +2,7 @@
 date = '2025-12-28T11:13:41+09:00'
 draft = false
 title = '【React】条件付きProps展開'
-description = 'Reactで特定の値がある場合のみPropsを渡すテクニック。undefinedを渡さず、キー自体を存在させないスプレッド構文の使い方を解説します。'
+description = 'Reactで特定の値がある場合のみPropsを渡す実装例です。undefinedを渡さず、キー自体を存在させないスプレッド構文の使い方を解説します。'
 tags = ['React']
 +++
 

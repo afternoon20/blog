@@ -2,7 +2,7 @@
 date = '2025-12-29T01:02:30+09:00'
 draft = false
 title = 'HugoでGA4とSearch Consoleを導入'
-description = 'Hugoでブログを公開した後に必須となるGA4とGoogle Search Consoleの導入手順。設定ファイルへの追記方法からDNS設定、運用初期の注意点まで解説します。'
+description = 'Hugoでブログを公開した後に必須となるGA4とGoogle Search Consoleの導入手順です。設定ファイルへの追記方法からDNS設定、運用初期の注意点まで解説します。'
 tags = ['GA4', 'GSC', 'Netlify', 'Hugo']
 +++
 

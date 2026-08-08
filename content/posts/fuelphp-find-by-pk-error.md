@@ -2,7 +2,7 @@
 date = '2023-12-28T15:47:25+09:00'
 draft = false
 title = '【FuelPHP】find_by_pkで「id」カラムエラーが出る原因と解決策'
-description = "FuelPHPのModel_Crudで「Unknown column 'id'」エラーが出る原因と解決策を解説。主キー名がid以外の場合に必要な$_primary_keyの設定方法を解説します。"
+description = "FuelPHPのModel_Crudで「Unknown column 'id'」エラーが出る原因と解決策を解説します。主キー名がid以外の場合に必要な$_primary_keyの設定方法を解説します。"
 tags = ['PHP', 'FuelPHP']
 +++
 

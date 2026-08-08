@@ -2,7 +2,7 @@
 date = '2025-12-28T12:02:20+09:00'
 draft = false
 title = '【VBA】配列の代わりにDictionaryオブジェクトを使う'
-description = 'VBAの配列操作に限界を感じている方へ。実務で役立つDictionaryオブジェクトの活用術と、配列との明確な使い分けを解説します。'
+description = 'VBAの配列操作に限界を感じている方に、実務で役立つDictionaryオブジェクトの活用術と、配列との明確な使い分けを解説します。'
 tags = ['VBA']
 +++
 

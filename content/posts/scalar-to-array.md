@@ -2,7 +2,7 @@
 date = '2025-11-28T15:15:21+09:00'
 draft = false
 title = '【PHP】「Uncaught Error: Cannot use a scalar value as an array」の原因と解決法'
-description = 'PHP 8.0以降で頻発する「Cannot use a scalar value as an array」エラー。数値や文字列が代入された変数を配列として扱おうとした際の原因と、実務的な対策を解説します。'
+description = 'PHP 8.0以降で頻発する「Cannot use a scalar value as an array」エラーの対応について、数値や文字列が代入された変数を配列として扱おうとした際の原因と、実務的な対策を解説します。'
 tags = ['PHP']
 +++
 

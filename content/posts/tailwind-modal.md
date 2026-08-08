@@ -2,7 +2,7 @@
 date = '2026-01-01T00:00:14+09:00'
 draft = false
 title = 'TailwindとJavaScriptで作るアニメーション付きモーダル'
-description = '外部ライブラリを使わず、Tailwind CSSとバニラJSだけで軽量なモーダルを実装。複数設置への対応やアニメーション、アクセシビリティ（Escapeキー対応）のポイントを解説します。'
+description = '外部ライブラリを使わず、Tailwind CSSとバニラJSだけで軽量なモーダルを実装しました。複数設置への対応やアニメーション、アクセシビリティ（Escapeキー対応）のポイントを解説します。'
 tags = ['TailWind CSS', 'JavaScript']
 +++
 

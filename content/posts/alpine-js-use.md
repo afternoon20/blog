@@ -2,7 +2,7 @@
 date = '2026-01-04T11:32:22+09:00'
 draft = false
 title = 'Alpine.jsで作るタグ入力（Tag Input）UIの実装'
-description = 'ユーザーが入力したキーワードを視覚的な「チップ」として表示するタグ入力UI。本記事では、Alpine.jsを使用して、EnterやSpaceキーで動的にタグを生成する実装方法を解説します。'
+description = 'ユーザーが入力したキーワードを視覚的な「チップ」として表示するタグ入力UIです。。本記事では、Alpine.jsを使用して、EnterやSpaceキーで動的にタグを生成する実装方法を解説します。'
 tags = ['JavaScript']
 +++
 
