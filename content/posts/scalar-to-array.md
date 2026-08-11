@@ -2,12 +2,11 @@
 date = '2025-11-28T15:15:21+09:00'
 draft = false
 title = '【PHP】「Uncaught Error: Cannot use a scalar value as an array」の原因と解決法'
-description = 'PHP 8.0以降で頻発する「Cannot use a scalar value as an array」エラーの対応について、数値や文字列が代入された変数を配列として扱おうとした際の原因と、実務的な対策を解説します。'
+description = 'PHPの開発中に「Uncaught Error: Cannot use a scalar value as an array」というエラーに直面することがあります。このエラー自体はPHP7以前から存在しますが、PHP8.0からはnullに対する[]追加操作が警告（Notice）からエラー（Fatal Error）に格上げされたため、バージョンアップ時に突然発生するケースが増えています'
 tags = ['PHP']
 +++
 
-PHPの開発中に「Uncaught Error: Cannot use a scalar value as an array in…」というエラーに直面することがあります。
-このエラーは、PHP 8.0以降の型チェック厳格化に伴い、古いコードを動かした際などに特によく見られるようになりました。原因と具体的な解決法を解説します。
+PHPの開発中に「Uncaught Error: Cannot use a scalar value as an array」というエラーに直面することがあります。このエラー自体はPHP7以前から存在しますが、PHP8.0からはnullに対する[]追加操作が警告（Notice）からエラー（Fatal Error）に格上げされたため、バージョンアップ時に突然発生するケースが増えています。
 
 ## エラーが起きる原因
 このエラーは、すでにスカラー値が代入されている変数に対して、配列のように要素を追加しようとしたときに発生します。
@@ -73,6 +72,49 @@ foreach ($items as $item) {
 }
 ```
 
+### セッションやフォームの値をそのまま配列として使った場合
+
+フォームから送信された値やセッションの値は文字列として渡されます。
+それをそのまま配列として扱おうとするとエラーになります。
+
+```php
+$ids = $_POST['ids']; 
+$ids[] = 2;
+```
+
+#### 対策：受け取り時に型を確認・変換する
+
+```php
+$ids = $_POST['ids'] ?? [];
+if (!is_array($ids)) {
+    $ids = [$ids];
+}
+$ids[] = 2;
+```
+
+### JSONデコード失敗時にfalseが返る場合
+
+json_decode()は不正なJSON文字列を受け取るとnullを返します。
+これを配列として扱おうとするとエラーになります。
+
+```php
+$json = "不正なJSON文字列";
+$data = json_decode($json, true);
+$data[] = "追加データ";
+```
+
+#### 対策：json_decode後に必ず検証する
+
+```php
+$json = "不正なJSON文字列";
+$data = json_decode($json, true);
+
+if (json_last_error() !== JSON_ERROR_NONE || !is_array($data)) {
+    $data = [];
+}
+$data[] = "追加データ";
+```
+
 ## PHPバージョンによる挙動の違い
 以前のPHP（7.4以前）では、変数がnullの場合に[]で値を追加すると自動的に配列として扱われましたが、PHP8.0以降では型チェックが厳格化されています。
 以前動いていたコードが、サーバーのバージョンを上げたら動かなくなったという場合は、この厳格化が原因である可能性が高いです。常に「配列を使う前は初期化する」という癖をつけておきましょう。
@@ -80,3 +122,26 @@ foreach ($items as $item) {
 ## この記事のまとめ
 「Cannot use a scalar value as an array」を防ぐには、**「配列を使う直前で必ず初期化する」**という習慣が重要です。
 モダンなPHP開発においては、最初から```$data = []```と定義するか、関数の戻り値に型宣言を活用して、予期せぬスカラー値が混入しない設計を心がけましょう。
+
+### 型宣言で混入を防ぐ
+
+関数の引数や戻り値に型宣言を使うことで、意図しないスカラー値の混入を設計レベルで防げます。
+
+```php
+function getItems(): array
+{
+    return [];
+}
+
+$data = getItems();
+$data[] = "要素1";
+```
+
+PHP8.0以降ではstrict_types=1を宣言することでさらに厳格な型チェックが適用されます。
+
+```php
+<?php
+declare(strict_types=1);
+```
+
+ファイルの先頭に記述することで、型が一致しない場合に自動変換されず即座にエラーが発生するようになります。これにより意図しない型の混入を早期に発見でき、バグの防止につながります。
