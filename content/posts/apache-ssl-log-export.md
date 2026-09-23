@@ -6,7 +6,7 @@ description = 'Apacheのssl_access_logを元ファイルを残したままコピ
 tags = ['Linux', 'Apache']
 +++
 
-Apacheのアクセスログ`/etc/httpd/logs/ssl_access_log`を、元ファイルはそのまま残した状態でホームディレクトリにコピー・圧縮し、ローカルPCへ転送するまでの手順をまとめます。
+Apacheのアクセスログを、元ファイルはそのまま残した状態でホームディレクトリにコピー・圧縮し、ローカルPCへ転送するまでの手順をまとめます。
  
 ## なぜこの手順を踏むのか
  
